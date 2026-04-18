@@ -34,4 +34,14 @@ class Task {
       );
 
   //คำสั่งในการแปลงข้องมูลจาก แอพไปยัง supabase -> toJson
+  //คำสั่งในการแปลงข้องมูลจาก แอพไปยัง supabase -> toJson
+  Map<String, dynamic> toJson() => {
+        'id': id,
+        'task_name': task_name,
+        'task_where': task_where,
+        'task_person': task_person,
+        'task_status': task_status,
+        'task_image_url': task_image_url,
+        'task_duedate': task_duedate,
+      };
 }
