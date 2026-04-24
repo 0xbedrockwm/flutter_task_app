@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_task_app/models/task.dart';
 import 'package:flutter_task_app/services/supabase_service.dart';
 import 'package:flutter_task_app/views/add_task_ui.dart';
+import 'package:flutter_task_app/views/update_delete_task_ui.dart';
 
 class ShowAllTaskUi extends StatefulWidget {
   const ShowAllTaskUi({super.key});
@@ -102,6 +103,14 @@ class _ShowAllTaskUiState extends State<ShowAllTaskUi> {
                       bottom: 5,
                     ),
                     child: ListTile(
+                      onTap: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => UpdateDeleteTaskUi(),
+                          ),
+                        );
+                      },
                       title: Text(
                         'งาน: ${tasks[index].task_name}',
                       ),
