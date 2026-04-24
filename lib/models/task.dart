@@ -1,47 +1,46 @@
-//ไฟล์ที่ map กับข้อมูลในตาราง
+//ไฟล์ที่แมปกับข้อมูลในตารางบน Supabase
 class Task {
-  //ตัวแปรที่ล้อชื่อกับคอลลัมน์ในตาราง
+  //ตัวแปรที่ล้อกับชื่อคอลัมน์ในตาราง
   String? id;
   String? task_name;
   String? task_where;
-  String? task_person;
-  String? task_status;
-  String? task_image_url;
+  int? task_person;
+  bool? task_status;
   String? task_duedate;
+  String? task_image_url;
 
-  //Contructor
-  //ที่เอาไว้แพ็คข้อมูลเวลาส่งไป insert / update ไปยัง supabase
-  //ทีเอาไว้แพ็คข้อมูลส่งค่าระหว่างหน้าจอ หรือส่งข้อมูลไปมาใดๆ
+  // Constructor
+  //ที่เอาไว้แพ็กข้อมูลเวลาส่งไป Insert/Update ไปยัง Supabase
+  //ที่เอาไว้แพ็กข้อมูลเวลาส่งค่าระหว่างหน้าจอ หรือ ส่งค่าข้อมูลไปมาใดๆ
   Task({
     this.id,
     this.task_name,
     this.task_where,
     this.task_person,
-    this.task_image_url,
     this.task_status,
     this.task_duedate,
+    this.task_image_url,
   });
 
-  //คำสั่งในการแปลข้อมูลจาก supabase ซึ่งเป็น JSON มาใช้ในแอพ -> fromJsOn
+  // คำสั่งในการแปลงข้อมูลจาก Supabase ซึ่งเป็น JSOM มาใช้ในแอปฯ formJson
   factory Task.fromJson(Map<String, dynamic> json) => Task(
         id: json['id'],
         task_name: json['task_name'],
         task_where: json['task_where'],
         task_person: json['task_person'],
         task_status: json['task_status'],
-        task_image_url: json['task_image_url'],
         task_duedate: json['task_duedate'],
+        task_image_url: json['task_image_url'],
       );
 
-  //คำสั่งในการแปลงข้องมูลจาก แอพไปยัง supabase -> toJson
-  //คำสั่งในการแปลงข้องมูลจาก แอพไปยัง supabase -> toJson
+  // คำสั่งในการแปลงข้อมูลจาก แอปฯ ไปเป็น JSON เพื่อส่งไปยัง Supabase -> toJson
   Map<String, dynamic> toJson() => {
         'id': id,
         'task_name': task_name,
         'task_where': task_where,
         'task_person': task_person,
         'task_status': task_status,
-        'task_image_url': task_image_url,
         'task_duedate': task_duedate,
+        'task_image_url': task_image_url,
       };
 }

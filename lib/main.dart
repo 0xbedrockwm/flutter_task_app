@@ -27,7 +27,9 @@ class FlutterTaskApp extends StatelessWidget {
       title: 'TASK ME',
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
-        textTheme: GoogleFonts.promptTextTheme(),
+        textTheme: GoogleFonts.promptTextTheme(
+          Theme.of(context).textTheme,
+        ),
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.blue),
         useMaterial3: true,
       ),
